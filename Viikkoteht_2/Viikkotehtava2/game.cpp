@@ -29,24 +29,24 @@ void Game::play()
     //Yllä olevalla rivillä testasin printaamalla, että tulee arvotuksi oikeanlainen luku
 
     do {
-        cout << "Give your guess between 1 and :" << maxNumber << endl;
+        cout << "Give your guess between 1 and " << maxNumber << "." << endl;
         cin >> playerGuess;
         numOfGuesses++;
 
         if (playerGuess < randomNumber) {
-            cout << "Your guess is too small."; << endl;
-            cout << "Give your guess between 1 and  " << maxNumber << "." << endl;
+            cout << "Your guess is too small." << endl;
         } else if (playerGuess > randomNumber) {
             cout << "Your guess is too big.";
-            cout << "Give your guess between 1 and  " << maxNumber << "." << endl;
         }
     } while (playerGuess != randomNumber);
+
+    printGameResult();
 
 }
 
 void Game::printGameResult()
 {
-    cout << "You guessed the right number: " << randomNumber << " with " << numOfGuesses << " guesses!" << endl;
+    cout << "You guessed the right number = " << randomNumber << " with " << numOfGuesses << " guesses!" << endl;
 }
 
 

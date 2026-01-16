@@ -13,7 +13,6 @@ private:
     int randomNumber;
     int numOfGuesses;
     void printGameResult();
-
 };
 
 #endif // GAME_H
