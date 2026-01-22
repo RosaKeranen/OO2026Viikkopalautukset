@@ -29,7 +29,6 @@ void Game::play()
     srand(time(NULL));
     randomNumber = rand() % maxNumber + 1; // 1-maxnum väliltä arvotaan lukuja
 
-
     do {
         cout << "Give your guess between 1 and " << maxNumber << "." << endl;
         cin >> playerGuess;
