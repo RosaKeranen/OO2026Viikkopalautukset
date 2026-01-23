@@ -4,6 +4,7 @@ using namespace std;
 Chef::Chef(string name)
 {
     chefName = name;
+    cout << "Chef " << chefName << " konstruktori." << endl;
 }
 
 Chef::~Chef()
@@ -18,12 +19,16 @@ string Chef::getName()
 
 int Chef::makeSalad(int ainestenMaara)
 {
-    return ainestenMaara / 5;
+    int annokset = ainestenMaara / 5;
+    cout << "Chef " << chefName << " with "<< ainestenMaara << " items can make salad " << annokset << " portions." << endl;
+    return annokset;
 }
 
 int Chef::makeSoup(int ainestenMaara)
 {
-    return ainestenMaara / 3;
+    int keittoannokset = ainestenMaara / 3;
+    cout << "Chef " << chefName << " with "<< ainestenMaara << " items can make soup " << keittoannokset << " portions." << endl;
+    return keittoannokset;
 }
 
 

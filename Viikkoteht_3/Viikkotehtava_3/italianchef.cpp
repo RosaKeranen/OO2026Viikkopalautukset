@@ -4,18 +4,20 @@ using namespace std;
 
 ItalianChef::ItalianChef(string name) : Chef(name)
 {
-
+    cout << "ItalianChef " << chefName << " konstruktori." << endl;
 }
+
 
 ItalianChef::~ItalianChef()
 {
-    cout << "Chef " << chefName << " destruktori." << endl;
+    cout << "ItalianChef " << chefName << " destruktori." << endl;
 }
 
 bool ItalianChef::askSecret(string passw, int flour, int water)
 {
     if (passw == password)
     {
+        cout << "Password ok!" << endl;
         makepizza(flour, water);
         return true;
     }
@@ -30,10 +32,15 @@ int ItalianChef::makepizza(int jauhoMaara, int vesiMaara)
     }
 
     if (jauhoMaara < vesiMaara) {
-        return jauhoMaara / 5;
+        int pizzat = jauhoMaara / 5;
+        cout << "ItalianChef " << chefName << " with " << jauhoMaara << " flour and " << vesiMaara << " water can make " << pizzat << " pizzas." << endl;
+        return pizzat;
     } else {
-        return vesiMaara / 5;
+        int pizzoja = vesiMaara / 5;
+        cout << "ItalianChef " << chefName << " with " << jauhoMaara << " flour and " << vesiMaara << " water can make " << pizzoja << " pizzas." << endl;
+        return pizzoja;
     }
+
 }
 
 
