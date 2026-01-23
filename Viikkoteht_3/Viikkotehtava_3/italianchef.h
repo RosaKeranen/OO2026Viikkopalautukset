@@ -11,7 +11,7 @@ public:
     ~ItalianChef();
     bool askSecret(string, int, int);
 private:
-    string password(string);
+    string password = "pizza";
     int makepizza(int, int);
     int flour;
     int water;

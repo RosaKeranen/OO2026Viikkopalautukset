@@ -2,29 +2,38 @@
 #include <iostream>
 using namespace std;
 
-ItalianChef::ItalianChef(string s) {
+ItalianChef::ItalianChef(string name) : Chef(name)
+{
 
 }
 
 ItalianChef::~ItalianChef()
 {
-
+    cout << "Chef " << chefName << " destruktori." << endl;
 }
 
-bool ItalianChef::askSecret(string s, int luku1, int luku2)
+bool ItalianChef::askSecret(string passw, int flour, int water)
 {
+    if (passw == password)
+    {
+        makepizza(flour, water);
+        return true;
+    }
 
+    return false;
 }
 
-string ItalianChef::password(string passw)
+int ItalianChef::makepizza(int jauhoMaara, int vesiMaara)
 {
-    passw = "pizza";
-    return "pizza";
-}
+    if (jauhoMaara < 5 && vesiMaara < 5) {
+        return 0;
+    }
 
-int ItalianChef::makepizza(int ekaluku, int tokaluku)
-{
-
+    if (jauhoMaara < vesiMaara) {
+        return jauhoMaara / 5;
+    } else {
+        return vesiMaara / 5;
+    }
 }
 
 
