@@ -40,9 +40,10 @@ bool Asiakas::nosto(double summa)
 
 bool Asiakas::luotonMaksu(double summa)
 {
-    cout << "Luottotili: talletus " << summa << " tehty, luottotilillä on nyt " << luottotili.getBalance() << endl;
-
     bool result = luottotili.deposit(summa);
+    cout << "Luottotili: talletus " << summa << " tehty, luottotililla on nyt " << luottotili.getBalance() << endl;
+
+    //bool result = luottotili.deposit(summa);
 
     showSaldo();
     return result;
@@ -50,12 +51,13 @@ bool Asiakas::luotonMaksu(double summa)
 
 bool Asiakas::luotonNosto(double summa)
 {
-    cout << "Luottotili: nosto " << summa << " tehty, luottoa jäljellä " << luottotili.getBalance() << endl;
-
     bool result = luottotili.withdraw(summa);
+    cout << "Luottotili: nosto " << summa << " tehty, luottoa jaljella " << luottotili.getBalance() << endl;
+
+    //bool result = luottotili.withdraw(summa);
 
     showSaldo();
-    return luottotili.withdraw(summa);
+    return result;
 }
 
 /*bool Asiakas::tiliSiirto(double summa, Asiakas &)

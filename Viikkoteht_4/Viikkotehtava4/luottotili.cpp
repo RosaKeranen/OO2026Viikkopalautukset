@@ -3,6 +3,7 @@
 
 Luottotili::Luottotili(string tilinOmistaja, double omaLuottoraja ) : Pankkitili(tilinOmistaja)
 {
+    saldo = omaLuottoraja;
     omistaja = tilinOmistaja;
     luottoRaja = omaLuottoraja;
     cout << "Luottotili luotu " << omistaja << ":lle" << endl;
@@ -11,22 +12,32 @@ Luottotili::Luottotili(string tilinOmistaja, double omaLuottoraja ) : Pankkitili
 bool Luottotili::deposit(double talletus)
 {
     if (talletus < 0) {
+        cout << "Ei onnistu. Talletus ei saa olla negatiivinen luku." << endl;
         return false;
-    } else {
-        saldo = saldo + talletus;
-        //cout << "Luottotili: talletus " << talletus << " tehty" << endl;
-        //Mutta saldo ei saa mennä yli 0 !!
     }
+
+    if (saldo + talletus > luottoRaja) {
+        cout << "Ei onnistu. Luottotilin saldo ei saa menna yli luottorajan." << endl;
+        return false;
+    }
+
+    saldo = saldo + talletus;
     return true;
 }
 
 bool Luottotili::withdraw(double nosto)
 {
-    if (nosto < 0 || nosto > luottoRaja) {
+    if (nosto < 0) {
+        cout << "Ei onnistu. Nosto ei saa olla negatiivinen luku." << endl;
         return false;
-    } else {
-        saldo = saldo - nosto;
-    } //mutta jos tässä vaiheessa menee yli luottorajan?
+    }
+
+    if (saldo - nosto < -luottoRaja) {
+        cout << "Ei onnistu. Luottoraja tuli vastaan." << endl;
+        return false;
+    }
+
+    saldo = saldo - nosto;
     return true;
 }
 
