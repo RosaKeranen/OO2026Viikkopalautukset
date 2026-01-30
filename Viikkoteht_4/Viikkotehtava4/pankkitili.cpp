@@ -18,7 +18,6 @@ bool Pankkitili::deposit(double talletus)
         return false;
     } else {
         saldo = saldo + talletus;
-        cout << "Pankkitili: talletus " << talletus << " tehty" << endl;
     }
     return true;
 }
@@ -29,7 +28,6 @@ bool Pankkitili::withdraw(double nosto)
         return false;
     } else {
         saldo = saldo - nosto;
-        cout << "Pankkitili: nosto " << nosto << " tehty" << endl;
     }
 
     return true;

@@ -1,9 +1,11 @@
 #include <iostream>
-
+#include "pankkitili.h"
+#include "luottotili.h"
+#include "asiakas.h"
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    Asiakas asiakas1("Aapeli", 1000);
+    asiakas1.talletus(200.50);
 }
