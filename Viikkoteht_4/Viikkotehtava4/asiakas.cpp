@@ -59,8 +59,7 @@ bool Asiakas::luotonNosto(double summa)
 bool Asiakas::tiliSiirto(double summa, Asiakas & vastaanottaja)
 {
     if (nosto(summa)){
-       vastaanottaja.kayttotili.deposit(summa);
-
+        vastaanottaja.kayttotili.deposit(summa);
         return true;
     }
 
