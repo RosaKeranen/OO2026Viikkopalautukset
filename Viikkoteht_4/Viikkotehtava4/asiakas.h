@@ -17,6 +17,8 @@ public:
     bool luotonNosto(double);
 private:
     string nimi;
+    Pankkitili kayttotili;
+    Luottotili luottotili;
 
 };
 

@@ -1,14 +1,13 @@
 #include "asiakas.h"
 
-Asiakas::Asiakas(string nimi, double saldo)
+Asiakas::Asiakas(string nimi, double luottoraja) : kayttotili(nimi), luottotili(nimi, luottoraja)
 {
-    kayttotili = Pankkitili(nimi);
-    luottotili = Luottotili(nimi,saldo);
+
 }
 
 string Asiakas::getNimi()
 {
-
+    return nimi;
 }
 
 void Asiakas::showSaldo()
@@ -17,24 +16,24 @@ void Asiakas::showSaldo()
     cout << "Luottotilin saldo " << luottotili.getBalance() << endl;
 }
 
-bool Asiakas::talletus(double)
+bool Asiakas::talletus(double summa)
 {
-
+    return kayttotili.deposit(summa);
 }
 
-bool Asiakas::nosto(double)
+bool Asiakas::nosto(double summa)
 {
-
+    return kayttotili.withdraw(summa);
 }
 
-bool Asiakas::luotonMaksu(double)
+bool Asiakas::luotonMaksu(double summa)
 {
-
+    return luottotili.deposit(summa);
 }
 
-bool Asiakas::luotonNosto(double)
+bool Asiakas::luotonNosto(double summa)
 {
-
+    return luottotili.withdraw(summa);
 }
 
 
