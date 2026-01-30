@@ -21,25 +21,40 @@ void Asiakas::showSaldo()
 bool Asiakas::talletus(double summa)
 {   
     cout << "Pankkitili: talletus " << summa << " tehty" << endl;
+
+    bool result = kayttotili.deposit(summa);
+
     showSaldo();
-    return kayttotili.deposit(summa);
+    return result;
 }
 
 bool Asiakas::nosto(double summa)
 {
     cout << "Pankkitili: nosto " << summa << " tehty" << endl;
-    return kayttotili.withdraw(summa);
+
+    bool result = kayttotili.withdraw(summa);
+
+    showSaldo();
+    return result;
 }
 
 bool Asiakas::luotonMaksu(double summa)
 {
     cout << "Luottotili: talletus " << summa << " tehty, luottotilillä on nyt " << luottotili.getBalance() << endl;
-    return luottotili.deposit(summa);
+
+    bool result = luottotili.deposit(summa);
+
+    showSaldo();
+    return result;
 }
 
 bool Asiakas::luotonNosto(double summa)
 {
     cout << "Luottotili: nosto " << summa << " tehty, luottoa jäljellä " << luottotili.getBalance() << endl;
+
+    bool result = luottotili.withdraw(summa);
+
+    showSaldo();
     return luottotili.withdraw(summa);
 }
 
