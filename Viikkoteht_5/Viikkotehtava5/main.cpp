@@ -6,11 +6,12 @@ using namespace std;
 
 int main()
 {
+    Notifikaattori notifikaattori;
+
     Seuraaja a("Sebastian");
     Seuraaja b("Helena");
     Seuraaja c("Anselmi");
 
-    Notifikaattori notifikaattori;
     notifikaattori.lisaa(&a);
     notifikaattori.lisaa(&b);
     notifikaattori.lisaa(&c);

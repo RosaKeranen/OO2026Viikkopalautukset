@@ -5,6 +5,7 @@ using namespace std;
 
 Notifikaattori::Notifikaattori()
 {
+    cout << "Luodaan notifikaattori." << endl;
     seuraajat = nullptr;
 }
 
@@ -14,11 +15,15 @@ void Notifikaattori::lisaa(Seuraaja* s)
 
     s->next = seuraajat;
     seuraajat = s;
+
+    cout << "Notifikaattori lisaa seuraajan " << s->getNimi() << endl;
 }
 
 void Notifikaattori::poista(Seuraaja* s)
 {
     if (seuraajat == nullptr || s == nullptr) return;
+
+    cout << "Notifikaattori poistaa seuraajan " << s->getNimi() << endl;
 
     if (seuraajat == s) {
         seuraajat = seuraajat->next;
@@ -35,10 +40,12 @@ void Notifikaattori::poista(Seuraaja* s)
         nykyinen->next = s->next;
         s->next = nullptr;
     }
+
 }
 
 void Notifikaattori::tulosta()
 {
+    cout << "Notifikaattorin seuraajat:" << endl;
     Seuraaja* nykyinen = seuraajat;
     while (nykyinen != nullptr) {
         cout << nykyinen->getNimi() << endl;
@@ -48,6 +55,7 @@ void Notifikaattori::tulosta()
 
 void Notifikaattori::postita(string postitettuViesti)
 {
+    cout << "Notifikaattori postaa viestin " << postitettuViesti << endl;
     Seuraaja* nykyinen = seuraajat;
     while (nykyinen != nullptr) {
         nykyinen->paivitys(postitettuViesti);

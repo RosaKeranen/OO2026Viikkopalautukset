@@ -5,6 +5,7 @@
 Seuraaja::Seuraaja(string seuraajanNimi)
 {
     nimi = seuraajanNimi;
+    cout << "Luodaan seuraaja " << nimi << endl;
 }
 
 string Seuraaja::getNimi()
