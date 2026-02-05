@@ -12,9 +12,9 @@ string Seuraaja::getNimi()
     return nimi;
 }
 
-void Seuraaja::paivitys(string uusiViesti)
+void Seuraaja::paivitys(string viesti)
 {
-    cout << "Seuraaja " << nimi << " sai viestin " << uusiViesti << endl;
+    cout << "Seuraaja " << nimi << " sai viestin " << viesti << endl;
 }
 
 
