@@ -9,7 +9,7 @@ public:
     Notifikaattori();
     void lisaa (Seuraaja* s);
     void poista (Seuraaja* s);
-    void tulosta ();
+    void tulosta();
     void postita(string);
 
 private:

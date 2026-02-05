@@ -6,24 +6,21 @@ using namespace std;
 
 int main()
 {
-    Seuraaja a("Nala");
-    Seuraaja b("Kaffe");
-    Seuraaja c("Miisu");
+    Seuraaja a("Sebastian");
+    Seuraaja b("Helena");
+    Seuraaja c("Anselmi");
 
-    //a.next = &b;   // pointteri osoittaa toiseen olioon
+    Notifikaattori notifikaattori;
+    notifikaattori.lisaa(&a);
+    notifikaattori.lisaa(&b);
+    notifikaattori.lisaa(&c);
 
-    //cout << a.getNimi() << endl;
-    //cout << a.next->getNimi() << endl;  // -> koska pointteri
+    notifikaattori.tulosta();
+    notifikaattori.postita("Viesti numero yksi!");
 
-    //a.paivitys("Viesti Nalalle!");
-
-    Notifikaattori n;
-    n.lisaa(&a);
-    n.lisaa(&b);
-    n.lisaa(&c);
-
-    n.tulosta();
-
+    notifikaattori.poista(&c);
+    notifikaattori.tulosta();
+    notifikaattori.postita("Viesti numero kaksi!");
 
     return 0;
 }

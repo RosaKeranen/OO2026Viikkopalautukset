@@ -48,7 +48,6 @@ void Notifikaattori::tulosta()
 
 void Notifikaattori::postita(string postitettuViesti)
 {
-    postitettuViesti = "Kukkuu!";
     Seuraaja* nykyinen = seuraajat;
     while (nykyinen != nullptr) {
         nykyinen->paivitys(postitettuViesti);
