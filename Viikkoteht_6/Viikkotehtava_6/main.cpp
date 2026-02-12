@@ -28,6 +28,7 @@ int main ()
         {
             // Kysy käyttäjältä uuden opiskelijan nimi ja ikä
             // Lisää uusi student StudentList vektoriin.
+
             string newname;
             int newage;
             cout << "Enter student name: ";
@@ -76,10 +77,7 @@ int main ()
             // ja tulosta printStudentInfo() funktion avulla järjestetyt
             // opiskelijat
 
-            sort(studentList.begin(), studentList.end(),
-                 [](Student a, Student b) {
-                     return a.getAge() < b.getAge();
-                 });
+            sort(studentList.begin(), studentList.end(),[](Student a, Student b) {return a.getAge() < b.getAge();});
 
             for (int i = 0; i < studentList.size(); i++)
             {
@@ -97,10 +95,7 @@ int main ()
             cout << "Enter student name to search: ";
             cin >> searchName;
 
-            auto it = find_if(studentList.begin(), studentList.end(),
-                              [searchName](Student s) {
-                                  return s.getName() == searchName;
-                              });
+            auto it = find_if(studentList.begin(), studentList.end(),[searchName](Student s) {return s.getName() == searchName;});
 
             if (it != studentList.end())
             {
