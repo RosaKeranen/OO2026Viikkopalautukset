@@ -24,9 +24,24 @@ MainWindow::~MainWindow()
 
 void MainWindow::numberClickedHandler()
 {
-    QPushButton * button = qobject_cast<QPushButton>(sender());
+    QPushButton * button = qobject_cast<QPushButton*>(sender());
     QString name = button->objectName();
     qDebug()<<"Button name:" << name;
+}
+
+void MainWindow::clearAndEnterClickHandler()
+{
+
+}
+
+void MainWindow::addSubMulDivClickHandler()
+{
+
+}
+
+void MainWindow::resetLineEdits()
+{
+
 }
 
 /*void MainWindow::handleNappiClick()

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include<QPushButton>
+#include<QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,11 +20,18 @@ public:
     ~MainWindow();
 
 private slots:
-    void numberClickedHandler();
+    //void numberClickedHandler();
     //void handleNappiClick();
 
 private:
     Ui::MainWindow *ui;
-    //int laskuri;
+    QString number1,number2;
+    int state;
+    float result;
+    short operand;
+    void numberClickedHandler();
+    void clearAndEnterClickHandler();
+    void addSubMulDivClickHandler();
+    void resetLineEdits();
 };
 #endif // MAINWINDOW_H
