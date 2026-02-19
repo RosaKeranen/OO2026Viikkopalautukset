@@ -19,10 +19,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
-    //void numberClickedHandler();
-    //void handleNappiClick();
-
 private:
     Ui::MainWindow *ui;
     QString number1,number2;

@@ -5,9 +5,12 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-//, laskuri(0)
 {
     ui->setupUi(this);
+
+    state = 1;
+    operand= -1;
+    result = 0;
 
     connect(ui->N1,&QPushButton::clicked,
             this,&MainWindow::numberClickedHandler);
@@ -53,10 +56,22 @@ MainWindow::~MainWindow()
 void MainWindow::numberClickedHandler()
 {
     QPushButton * button = qobject_cast<QPushButton*>(sender());
-    QString name = button->objectName();
-    qDebug()<<"Button name:" << name;
+    QString value = button->text();
+    qDebug()<<"Button text:" << value;
 
-    //Tästä puuttuu jotain if-rakennetta?
+    if(state == 1)
+    {
+        number1 += value;
+        ui->num1->setText(number1);
+    }
+    else if(state == 2)
+    {
+        number2 += value;
+        ui->num2->setText(number2);
+    }
+
+    qDebug() << "number1 =" << number1;
+    qDebug() << "number2 =" << number2;
 }
 
 void MainWindow::clearAndEnterClickHandler()
@@ -64,7 +79,39 @@ void MainWindow::clearAndEnterClickHandler()
     QPushButton * button = qobject_cast<QPushButton*>(sender());
     QString name = button->objectName();
     qDebug()<<"Button name:" << name;
-    //Jonkinmoinen if-lause tännekin
+
+    if(name == "clear")
+    {
+        number1 = "";
+        number2 = "";
+        result = 0;
+        operand = -1;
+        state = 1;
+        resetLineEdits();
+    }
+    else if(name == "enter")
+    {
+        float n1 = number1.toFloat();
+        float n2 = number2.toFloat();
+
+        switch(operand)
+        {
+        case 0: result = n1 + n2; break;
+        case 1: result = n1 - n2; break;
+        case 2: result = n1 * n2; break;
+        case 3:
+            if(n2 != 0)
+                result = n1 / n2;
+            else
+            {
+                ui->result->setText("Error");
+                return;
+            }
+            break;
+        }
+
+        ui->result->setText(QString::number(result));
+    }
 }
 
 void MainWindow::addSubMulDivClickHandler()
@@ -73,19 +120,25 @@ void MainWindow::addSubMulDivClickHandler()
     QString name = button->objectName();
     qDebug()<<"Button name:" << name;
 
-    //QStringit pitää muuttaa numeroiksi toFloat esitehtävien esimerkin mukaan (teht 2)
+    QString op = button->text();
 
-    float n1 = number1.toFloat();
-    float n2 = number2.toFloat();
-    qDebug()<<"number 1 = " << n1 << " and number 2 = " << n2 << Qt::endl;
+    if(op == "+") operand = 0;
+    else if(op == "-") operand = 1;
+    else if(op == "*") operand = 2;
+    else if(op == "/") operand = 3;
+    else if(name == "enter") {
+        if (operand < 0) return;
+    }
 
-    //switch casella tänne operaatiot millä lasketaan
+    state = 2;
 
-    //ui->Result->setText(QString::number(result));
+    qDebug() << "Operand =" << operand;
 }
 
 void MainWindow::resetLineEdits()
 {
-
+    ui->num1->clear();
+    ui->num2->clear();
+    ui->result->clear();
 }
 
