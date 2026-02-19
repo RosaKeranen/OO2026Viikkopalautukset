@@ -36,7 +36,15 @@ void MainWindow::clearAndEnterClickHandler()
 
 void MainWindow::addSubMulDivClickHandler()
 {
+    //QStringit pitää muuttaa numeroiksi toFloat esitehtävien esimerkin mukaan (teht 2)
 
+    float n1 = number1.toFloat();
+    float n2 = number2.toFloat();
+    qDebug()<<"number 1 = " << n1 << " and number 2 = " << n2 << Qt::endl;
+
+    //switch casella tänne operaatiot millä lasketaan
+
+    //ui->Result->setText(QString::number(result));
 }
 
 void MainWindow::resetLineEdits()
