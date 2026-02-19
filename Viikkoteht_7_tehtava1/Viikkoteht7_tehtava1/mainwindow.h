@@ -20,9 +20,9 @@ public:
 
 private slots:
     void handleNappiClick();
-    void handleNapit(QPushButton *);
 
 private:
     Ui::MainWindow *ui;
+    int laskuri;
 };
 #endif // MAINWINDOW_H

@@ -5,14 +5,15 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , laskuri(0)
 {
     ui->setupUi(this);
+
+    ui->lineEdit->setText(QString::number(laskuri));
 
     connect(ui->Count,&QPushButton::clicked,
             this,&MainWindow::handleNappiClick);
     connect(ui->Reset,&QPushButton::clicked,
-            this,&MainWindow::handleNappiClick);
-    connect(ui->LineEdit,&QPushButton::clicked,
             this,&MainWindow::handleNappiClick);
 }
 
@@ -23,12 +24,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleNappiClick()
 {
-    if (auto button = qobject_cast<QPushButton*>(sender())) {
-        qDebug() << "Painike:" << button->text();
+    if (sender() == ui->Count) {
+        laskuri++;
     }
+    else if (sender() == ui->Reset) {
+        laskuri = 0;
+    }
+
+    ui->lineEdit->setText(QString::number(laskuri));
 }
 
-void MainWindow::handleNapit(QPushButton * ptr)
-{
-    qDebug() << "Painike handleNapit:" << ptr->text();
-}
