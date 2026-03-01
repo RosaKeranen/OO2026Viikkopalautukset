@@ -141,23 +141,3 @@ void MainWindow::endGame(QString winnerText)
 }
 
 
-/*void MainWindow::on_StartGame_clicked()
-{
-    connect(objectTimer, SIGNAL(timeout()), this, SLOT(slotShowTimer()));
-    objectTimer->start(1000);
-}
-
-
-void MainWindow::on_StopGame_clicked()
-{
-
-}
-
-void MainWindow::slotShowTimer()
-{
-    x+=1;
-    qDebug()<<"Aikaa kulunut "<< x << " sekuntia.\n";
-}*/
-
-
-

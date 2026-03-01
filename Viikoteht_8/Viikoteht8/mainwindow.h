@@ -23,7 +23,7 @@ private slots:
     void on_chooseTime2_clicked();
     void on_StartGame_clicked();
     void on_StopGame_clicked();
-    void updateGame();   // timerin slot
+    void updateGame();
 
 private:
     Ui::MainWindow *ui;
