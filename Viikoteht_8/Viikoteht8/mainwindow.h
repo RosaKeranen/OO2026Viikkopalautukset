@@ -5,9 +5,7 @@
 #include <QTimer>
 
 QT_BEGIN_NAMESPACE
-namespace Ui {
-class MainWindow;
-}
+namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -17,34 +15,30 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void timeout();
 
 private slots:
-
     void on_SwitchPlayer1_clicked();
-
     void on_SwitchPlayer2_clicked();
-
     void on_chooseTime1_clicked();
-
     void on_chooseTime2_clicked();
-
     void on_StartGame_clicked();
-
     void on_StopGame_clicked();
-
-    void slotShowTimer();
+    void updateGame();   // timerin slot
 
 private:
     Ui::MainWindow *ui;
-    QTimer * objectTimer;
-    short x = 0;
-    short player1time;
-    short player2time;
-    short currentPlayer;
-    short gameTime;
-    QTimer * pQTimer;
-    void updateProgressBar();
-    void setGameInfoText(QString, short);
+
+    QTimer *gameTimer;
+
+    int player1Time;
+    int player2Time;
+    int totalGameTime;
+
+    int currentPlayer;   // 1 tai 2
+    bool gameRunning;
+
+    void updateProgressBars();
+    void endGame(QString winnerText);
 };
-#endif // MAINWINDOW_H
+
+#endif
